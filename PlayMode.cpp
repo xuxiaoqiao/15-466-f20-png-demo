@@ -204,7 +204,7 @@ void PlayMode::update(float elapsed) {
 		player.transform->position = walkmesh->to_world_point(player.at);
 
 		{ //update player's rotation to respect local (smooth) up-vector:
-			
+
 			glm::quat adjust = glm::rotation(
 				player.transform->rotation * glm::vec3(0.0f, 0.0f, 1.0f), //current up vector
 				walkmesh->to_world_smooth_normal(player.at) //smoothed up vector at walk location
@@ -249,6 +249,7 @@ void PlayMode::draw(glm::uvec2 const &drawable_size) {
 	glDepthFunc(GL_LESS); //this is the default depth comparison function, but FYI you can change it.
 
 	scene.draw(*player.camera);
+	png_view.draw();
 
 	{ //use DrawLines to overlay some text:
 		glDisable(GL_DEPTH_TEST);

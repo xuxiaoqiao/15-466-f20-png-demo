@@ -2,6 +2,7 @@
 
 #include "Scene.hpp"
 #include "WalkMesh.hpp"
+#include "PngView.hpp"
 
 #include <glm/glm.hpp>
 
@@ -24,6 +25,7 @@ struct PlayMode : Mode {
 		uint8_t downs = 0;
 		uint8_t pressed = 0;
 	} left, right, down, up;
+	PngView png_view{};
 
 	//local copy of the game scene (so code can change it during gameplay):
 	Scene scene;
